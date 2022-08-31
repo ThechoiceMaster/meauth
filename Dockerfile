@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine3.15
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
@@ -28,13 +28,13 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn
+RUN npm install
 
 COPY . .
 
 COPY /usr/src/app/dist ./dist
 
-RUN yarn build
+RUN npm run build
 
 CMD [ "node", "dist/main" ]
 
