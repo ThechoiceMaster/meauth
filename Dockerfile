@@ -28,7 +28,7 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN npm install --network-timeout 100000
+RUN npm install
 
 COPY . .
 
@@ -64,7 +64,7 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN npm install --only=prod --network-timeout 100000
+RUN npm install
 
 COPY . .
 
