@@ -28,11 +28,11 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn --network-timeout 100000
+RUN npm install --network-timeout 100000
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 FROM node:16-alpine AS production
 
@@ -64,12 +64,12 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn --only=prod --network-timeout 100000
+RUN npm install --only=prod --network-timeout 100000
 
 COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
 
-RUN yarn build
+RUN npm run build
 
 CMD [ "node", "dist/main" ]
