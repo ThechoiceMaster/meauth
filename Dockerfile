@@ -28,7 +28,7 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn
+RUN yarn --network-timeout 100000
 
 COPY . .
 
@@ -64,7 +64,7 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN yarn --only=prod
+RUN yarn --only=prod --network-timeout 100000
 
 COPY . .
 
