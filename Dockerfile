@@ -28,13 +28,13 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN npm install
+RUN yarn
 
 COPY . .
 
 COPY /usr/src/app/dist ./dist
 
-RUN npm run build
+RUN yarn build
 
 CMD [ "node", "dist/main" ]
 
