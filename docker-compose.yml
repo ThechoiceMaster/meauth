@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  server:
+    image: auth:latest
+    ports:
+      - 80:3000
