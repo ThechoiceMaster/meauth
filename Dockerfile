@@ -28,7 +28,7 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 
-RUN npm cache clean
+RUN npm i typeorm
 
 RUN npm install
 
